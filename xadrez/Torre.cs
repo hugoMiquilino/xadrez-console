@@ -2,12 +2,11 @@
 
 namespace xadrez
 {
-    internal class Torre : Peca
+    class Torre : Peca
     {
-        public Torre(Tabuleiro tab, Cor cor)
-            : base(tab, cor)
-        {
 
+        public Torre(Tabuleiro tab, Cor cor) : base(tab, cor)
+        {
         }
 
         public override string ToString()
@@ -32,7 +31,8 @@ namespace xadrez
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
-                if (tab.peca(pos) != null && tab.peca(pos).cor != cor) {
+                if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
+                {
                     break;
                 }
                 pos.linha = pos.linha - 1;
@@ -43,7 +43,8 @@ namespace xadrez
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
-                if (tab.peca(pos) != null && tab.peca(pos).cor != cor) {
+                if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
+                {
                     break;
                 }
                 pos.linha = pos.linha + 1;
@@ -54,18 +55,20 @@ namespace xadrez
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
-                if (tab.peca(pos) != null && tab.peca(pos).cor != cor) {
+                if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
+                {
                     break;
                 }
                 pos.coluna = pos.coluna + 1;
             }
 
-            //esquerda
+            // esquerda
             pos.definirValores(posicao.linha, posicao.coluna - 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
-                if (tab.peca(pos) != null && tab.peca(pos).cor != cor) {
+                if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
+                {
                     break;
                 }
                 pos.coluna = pos.coluna - 1;
@@ -73,6 +76,5 @@ namespace xadrez
 
             return mat;
         }
-
     }
 }
