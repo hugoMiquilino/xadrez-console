@@ -1,6 +1,4 @@
-﻿using System.Runtime.ExceptionServices;
-
-namespace tabuleiro
+﻿namespace tabuleiro
 {
     abstract class Peca
     {
@@ -34,7 +32,7 @@ namespace tabuleiro
             {
                 for (int j = 0; i < tab.colunas; i++)
                 {
-                    if (mat[i,j])
+                    if (mat[i, j])
                     {
                         return true;
                     }
