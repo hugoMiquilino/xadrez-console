@@ -1,4 +1,5 @@
-﻿using tabuleiro;
+﻿using System;
+using tabuleiro;
 using xadrez;
 
 namespace xadrez_console
@@ -9,7 +10,6 @@ namespace xadrez_console
         {
             try
             {
-
                 PartidaDeXadrez partida = new PartidaDeXadrez();
 
                 while (!partida.terminada)
@@ -19,7 +19,8 @@ namespace xadrez_console
                         Console.Clear();
                         Tela.imprimirPartida(partida);
 
-                        Console.Write("\nOrigem: ");
+                        Console.WriteLine();
+                        Console.Write("Origem: ");
                         Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
                         partida.validarPosicaoDeOrigem(origem);
 
@@ -28,7 +29,8 @@ namespace xadrez_console
                         Console.Clear();
                         Tela.imprimirTabuleiro(partida.tab, posicoesPossiveis);
 
-                        Console.Write("\nDestino: ");
+                        Console.WriteLine();
+                        Console.Write("Destino: ");
                         Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
                         partida.validarPosicaoDeDestino(origem, destino);
 
@@ -40,16 +42,15 @@ namespace xadrez_console
                         Console.ReadLine();
                     }
                 }
-
                 Console.Clear();
                 Tela.imprimirPartida(partida);
-
             }
             catch (TabuleiroException e)
             {
                 Console.WriteLine(e.Message);
             }
 
+            Console.ReadLine();
         }
     }
 }
